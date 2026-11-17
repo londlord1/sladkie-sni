@@ -1,0 +1,107 @@
+@startuml
+title Диаграмма классов — сервис бронирования «Сладкие сны»
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam defaultFontName Arial
+hide circle
+
+class Category {
+  - id : int
+  - code : string
+  - name : string
+  + rooms() : Room[]
+}
+
+class Room {
+  - id : int
+  - title : string
+  - price : decimal
+  - capacity : int
+  - area : decimal
+  - description : string
+  - image : string
+  - isActive : boolean
+  + amenities() : Amenity[]
+  + isAvailable(period : DateRange) : boolean
+}
+
+class Amenity {
+  - id : int
+  - name : string
+}
+
+class Booking {
+  - id : int
+  - firstName : string
+  - lastName : string
+  - phone : string
+  - email : string
+  - checkIn : date
+  - checkOut : date
+  - status : BookingStatus
+  - createdAt : datetime
+  + nights() : int
+  + validate() : ValidationResult
+  + approve() : void
+  + reject() : void
+}
+
+class Admin {
+  - id : int
+  - login : string
+  - passwordHash : string
+  + authenticate(password : string) : boolean
+}
+
+class GuestData {
+  - firstName : string
+  - lastName : string
+  - phone : string
+  - email : string
+}
+
+class DateRange {
+  - checkIn : date
+  - checkOut : date
+  + nights() : int
+  + overlaps(other : DateRange) : boolean
+}
+
+enum BookingStatus {
+  NEW
+  APPROVED
+  REJECTED
+}
+
+class BookingService {
+  + create(room : Room, guest : GuestData, period : DateRange) : Booking
+  + isRoomFree(roomId : int, period : DateRange) : boolean
+  + changeStatus(bookingId : int, status : BookingStatus) : void
+}
+
+Category "1" -- "0..*" Room : содержит >
+Room "1" -- "0..*" Booking : имеет >
+Room "0..*" -- "0..*" Amenity : оснащён >
+Booking "1" --> "1" BookingStatus : имеет >
+Admin "1" -- "0..*" Booking : модерирует >
+BookingService ..> Room : использует
+BookingService ..> Booking : создаёт
+BookingService ..> GuestData : принимает
+BookingService ..> DateRange : принимает
+
+note right of Booking
+  Инварианты:
+  1) checkOut > checkIn
+  2) checkIn >= сегодня
+  3) у номера не может быть
+     двух пересекающихся
+     APPROVED-броней
+end note
+
+note bottom of BookingService
+  Серверная валидация и проверка
+  пересечения периодов выполняются
+  в одной транзакции с блокировкой
+  записи номера (SELECT ... FOR UPDATE).
+end note
+@enduml

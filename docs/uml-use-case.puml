@@ -1,0 +1,47 @@
+@startuml
+title Диаграмма прецедентов — сервис бронирования «Сладкие сны»
+left to right direction
+skinparam packageStyle rectangle
+skinparam shadowing false
+skinparam defaultFontName Arial
+
+actor "Гость" as Guest
+actor "Администратор" as Admin
+
+rectangle "Сервис бронирования номеров" {
+    usecase "Просмотреть каталог номеров" as UC_Catalog
+    usecase "Отфильтровать номера\n(категория, цена, гости)" as UC_Filter
+    usecase "Забронировать номер" as UC_Book
+    usecase "Заполнить форму бронирования" as UC_Form
+    usecase "Проверить занятость дат" as UC_Check
+    usecase "Войти в панель управления" as UC_Login
+    usecase "Просмотреть заявки" as UC_List
+    usecase "Одобрить заявку" as UC_Approve
+    usecase "Отклонить заявку" as UC_Reject
+    usecase "Удалить заявку" as UC_Delete
+    usecase "Управлять каталогом номеров" as UC_Rooms
+}
+
+Guest --> UC_Catalog
+Guest --> UC_Book
+UC_Filter .> UC_Catalog : <<extend>>
+UC_Book ..> UC_Form : <<include>>
+UC_Form ..> UC_Check : <<include>>
+
+Admin --> UC_Login
+Admin --> UC_List
+Admin --> UC_Rooms
+UC_List ..> UC_Login : <<include>>
+UC_Rooms ..> UC_Login : <<include>>
+UC_Approve .> UC_List : <<extend>>
+UC_Reject .> UC_List : <<extend>>
+UC_Delete .> UC_List : <<extend>>
+
+note bottom of UC_Check
+  Проверка выполняется на сервере:
+  дата заезда >= сегодня,
+  дата выезда > даты заезда,
+  период не пересекается
+  с одобренными бронями.
+end note
+@enduml
