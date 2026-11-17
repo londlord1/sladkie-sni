@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Сладкие сны — прототип каталога</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="prototype.css">
+</head>
+<body>
+<div class="prototype-bar">Статический прототип · <strong>Задание 2</strong> · данные демонстрационные</div>
+
+<header class="site-header">
+    <div class="container header-inner">
+        <a class="brand" href="index.html">
+            <span class="brand-mark" aria-hidden="true">☾</span>
+            <span class="brand-text">
+                <strong>Сладкие сны</strong>
+                <small>отдых без забот</small>
+            </span>
+        </a>
+
+        <nav class="main-nav" aria-label="Основная навигация">
+            <a href="index.html" class="nav-link">Главная</a>
+            <a href="catalog.html" class="nav-link is-active">Каталог</a>
+            <a href="booking.html" class="nav-link">Бронирование</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section class="page-head">
+        <div class="container">
+            <p class="eyebrow">Каталог</p>
+            <h1>Номера и цены</h1>
+            <p class="page-lead">Шесть номеров, выбранных случайным образом. Фильтр по категории, бюджету и количеству гостей.</p>
+        </div>
+    </section>
+
+    <section class="section section-tight">
+        <div class="container catalog-layout">
+            <form class="filter-card" id="catalog-filter" aria-label="Фильтр номеров">
+                <h2>Фильтр</h2>
+
+                <label class="filter-field">
+                    <span>Категория</span>
+                    <select name="category" id="filter-category">
+                        <option value="">Все категории</option>
+                        <option value="standard">Стандарт</option>
+                        <option value="studio">Студия</option>
+                        <option value="lux">Люкс</option>
+                    </select>
+                </label>
+
+                <label class="filter-field">
+                    <span>Цена до, ₽</span>
+                    <input type="number" name="price_max" id="filter-price" min="0" step="100" placeholder="например, 9000">
+                </label>
+
+                <label class="filter-field">
+                    <span>Количество гостей</span>
+                    <select name="capacity" id="filter-capacity">
+                        <option value="">Не важно</option>
+                        <option value="1">от 1</option>
+                        <option value="2">от 2</option>
+                        <option value="3">от 3</option>
+                        <option value="4">от 4</option>
+                    </select>
+                </label>
+
+                <div class="filter-actions">
+                    <button class="btn btn-primary" type="submit">Применить</button>
+                    <button class="btn btn-ghost" type="button" id="filter-reset">Сбросить фильтр</button>
+                </div>
+
+                <p class="prototype-note">В прототипе фильтр работает на клиенте. В рабочем сервисе те же условия обрабатываются на сервере.</p>
+            </form>
+
+            <div class="catalog-results">
+                <div class="results-head">
+                    <p>Найдено номеров: <strong id="results-count">6</strong></p>
+                    <span class="hint" id="results-hint">Случайная подборка из 6</span>
+                </div>
+
+                <div class="room-grid" id="room-grid">
+                    <article class="room-card" data-category="standard" data-price="4500" data-capacity="2">
+                        <div class="room-media">
+                            <img src="assets/img/standard.jpg" alt="Стандарт «Сити»" loading="lazy" width="640" height="420">
+                            <span class="room-badge">Стандарт</span>
+                        </div>
+                        <div class="room-body">
+                            <div class="room-top">
+                                <h3>Стандарт «Сити»</h3>
+                                <p class="room-price">4 500 ₽<span>/сутки</span></p>
+                            </div>
+                            <ul class="room-meta"><li>до 2 гостей</li><li>18 м²</li></ul>
+                            <ul class="room-amenities"><li>Wi-Fi</li><li>Кондиционер</li><li>Телевизор</li><li>Холодильник</li></ul>
+                            <a class="btn btn-primary btn-block" href="booking.html?room=standard">Забронировать</a>
+                        </div>
+                    </article>
+
+                    <article class="room-card" data-category="standard" data-price="4900" data-capacity="2">
+                        <div class="room-media">
+                            <img src="assets/img/standard.jpg" alt="Стандарт «Парк»" loading="lazy" width="640" height="420">
+                            <span class="room-badge">Стандарт</span>
+                        </div>
+                        <div class="room-body">
+                            <div class="room-top">
+                                <h3>Стандарт «Парк»</h3>
+                                <p class="room-price">4 900 ₽<span>/сутки</span></p>
+                            </div>
+                            <ul class="room-meta"><li>до 2 гостей</li><li>20 м²</li></ul>
+                            <ul class="room-amenities"><li>Wi-Fi</li><li>Кондиционер</li><li>Телевизор</li><li>Вид на парк</li></ul>
+                            <a class="btn btn-primary btn-block" href="booking.html?room=standard">Забронировать</a>
+                        </div>
+                    </article>
+
+                    <article class="room-card" data-category="standard" data-price="4200" data-capacity="1">
+                        <div class="room-media">
+                            <img src="assets/img/standard.jpg" alt="Стандарт «Смарт»" loading="lazy" width="640" height="420">
+                            <span class="room-badge">Стандарт</span>
+                        </div>
+                        <div class="room-body">
+                            <div class="room-top">
+                                <h3>Стандарт «Смарт»</h3>
+                                <p class="room-price">4 200 ₽<span>/сутки</span></p>
+                            </div>
+                            <ul class="room-meta"><li>до 1 гостя</li><li>14 м²</li></ul>
+                            <ul class="room-amenities"><li>Wi-Fi</li><li>Кондиционер</li><li>Телевизор</li><li>Рабочая зона</li></ul>
+                            <a class="btn btn-primary btn-block" href="booking.html?room=standard">Забронировать</a>
+                        </div>
+                    </article>
+
+                    <article class="room-card" data-category="studio" data-price="6900" data-capacity="2">
+                        <div class="room-media">
+                            <img src="assets/img/studio.jpg" alt="Студия «Лофт»" loading="lazy" width="640" height="420">
+                            <span class="room-badge">Студия</span>
+                        </div>
+                        <div class="room-body">
+                            <div class="room-top">
+                                <h3>Студия «Лофт»</h3>
+                                <p class="room-price">6 900 ₽<span>/сутки</span></p>
+                            </div>
+                            <ul class="room-meta"><li>до 2 гостей</li><li>28 м²</li></ul>
+                            <ul class="room-amenities"><li>Wi-Fi</li><li>Кухня</li><li>Диван</li><li>Телевизор</li></ul>
+                            <a class="btn btn-primary btn-block" href="booking.html?room=studio">Забронировать</a>
+                        </div>
+                    </article>
+
+                    <article class="room-card" data-category="studio" data-price="7400" data-capacity="2">
+                        <div class="room-media">
+                            <img src="assets/img/studio.jpg" alt="Студия «Панорама»" loading="lazy" width="640" height="420">
+                            <span class="room-badge">Студия</span>
+                        </div>
+                        <div class="room-body">
+                            <div class="room-top">
+                                <h3>Студия «Панорама»</h3>
+                                <p class="room-price">7 400 ₽<span>/сутки</span></p>
+                            </div>
+                            <ul class="room-meta"><li>до 2 гостей</li><li>30 м²</li></ul>
+                            <ul class="room-amenities"><li>Wi-Fi</li><li>Балкон</li><li>Кухня</li><li>Панорамное окно</li></ul>
+                            <a class="btn btn-primary btn-block" href="booking.html?room=studio">Забронировать</a>
+                        </div>
+                    </article>
+
+                    <article class="room-card" data-category="lux" data-price="12500" data-capacity="2">
+                        <div class="room-media">
+                            <img src="assets/img/lux.jpg" alt="Люкс «Гранд»" loading="lazy" width="640" height="420">
+                            <span class="room-badge">Люкс</span>
+                        </div>
+                        <div class="room-body">
+                            <div class="room-top">
+                                <h3>Люкс «Гранд»</h3>
+                                <p class="room-price">12 500 ₽<span>/сутки</span></p>
+                            </div>
+                            <ul class="room-meta"><li>до 2 гостей</li><li>45 м²</li></ul>
+                            <ul class="room-amenities"><li>Wi-Fi</li><li>Ванна</li><li>Сейф</li><li>Халат и тапочки</li></ul>
+                            <a class="btn btn-primary btn-block" href="booking.html?room=lux">Забронировать</a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="empty-state" id="empty-state" hidden>
+                    <h2>Ничего не нашлось</h2>
+                    <p>Попробуйте увеличить бюджет или выбрать другую категорию — в гостинице точно есть свободные номера.</p>
+                    <button class="btn btn-primary" type="button" id="empty-reset">Сбросить фильтр</button>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="container footer-grid">
+        <div class="footer-about">
+            <a class="brand brand-footer" href="index.html">
+                <span class="brand-mark" aria-hidden="true">☾</span>
+                <span class="brand-text">
+                    <strong>Сладкие сны</strong>
+                    <small>отдых без забот</small>
+                </span>
+            </a>
+            <p>Небольшая гостиница в центре города: светлые номера, тихий двор и завтрак до полудня.</p>
+        </div>
+
+        <div class="footer-contacts">
+            <h3>Контакты</h3>
+            <p>г. Новосибирск, ул. Сладкая, 12</p>
+            <p>Режим работы: круглосуточно, без выходных</p>
+            <p><a href="tel:+73832220000">+7 (383) 222-00-00</a></p>
+            <p><a href="mailto:hello@sweetdreams.ru">hello@sweetdreams.ru</a></p>
+        </div>
+    </div>
+    <div class="container footer-bottom">
+        <span>© 2026 «Сладкие сны». Учебный проект для демонстрационного экзамена.</span>
+        <a href="index.html">Прототип Задания 2</a>
+    </div>
+</footer>
+
+<script src="prototype.js"></script>
+</body>
+</html>

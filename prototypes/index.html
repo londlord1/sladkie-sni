@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Сладкие сны — прототип главной страницы</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="prototype.css">
+</head>
+<body>
+<div class="prototype-bar">Статический прототип · <strong>Задание 2</strong> · данные демонстрационные</div>
+
+<header class="site-header">
+    <div class="container header-inner">
+        <a class="brand" href="index.html">
+            <span class="brand-mark" aria-hidden="true">☾</span>
+            <span class="brand-text">
+                <strong>Сладкие сны</strong>
+                <small>отдых без забот</small>
+            </span>
+        </a>
+
+        <nav class="main-nav" aria-label="Основная навигация">
+            <a href="index.html" class="nav-link is-active">Главная</a>
+            <a href="catalog.html" class="nav-link">Каталог</a>
+            <a href="booking.html" class="nav-link">Бронирование</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section class="hero">
+        <div class="container hero-inner">
+            <div class="hero-copy">
+                <p class="eyebrow">Гостиница «Сладкие сны»</p>
+                <h1>Проснитесь там, где вам хорошо</h1>
+                <p class="hero-lead">
+                    Светлые номера, тишина и завтрак до полудня. Выберите даты — остальное мы возьмём на себя.
+                </p>
+                <div class="hero-actions">
+                    <a class="btn btn-primary btn-large" href="catalog.html">Смотреть номера</a>
+                    <a class="btn btn-ghost btn-large" href="#categories">Категории</a>
+                </div>
+                <ul class="hero-facts">
+                    <li><strong>3</strong><span>категории</span></li>
+                    <li><strong>от 4 200 ₽</strong><span>за сутки</span></li>
+                    <li><strong>24/7</strong><span>на связи</span></li>
+                </ul>
+            </div>
+
+            <div class="hero-media">
+                <img src="assets/img/hero.jpg" alt="Холл гостиницы «Сладкие сны»" width="960" height="720">
+                <div class="hero-note">
+                    Завтрак включён
+                    <small>для всех категорий номеров</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="categories">
+        <div class="container">
+            <div class="section-head">
+                <div>
+                    <p class="eyebrow">Категории</p>
+                    <h2>Три способа отдохнуть</h2>
+                </div>
+                <p class="section-lead">От компактного «Стандарта» до люкса с гостиной. Цены указаны за сутки.</p>
+            </div>
+
+            <div class="category-grid">
+                <a class="category-card category-standard" href="catalog.html?category=standard">
+                    <span class="category-name">Стандарт</span>
+                    <span class="category-text">Компактно и продуманно: всё, что нужно для деловой поездки или короткого отдыха.</span>
+                    <span class="category-bottom">
+                        <span class="category-price">от 4 200 ₽</span>
+                        <span class="category-link">Подобрать номер →</span>
+                    </span>
+                </a>
+                <a class="category-card category-studio" href="catalog.html?category=studio">
+                    <span class="category-name">Студия</span>
+                    <span class="category-text">Больше пространства: кухонная зона, диван и место для неспешного утра.</span>
+                    <span class="category-bottom">
+                        <span class="category-price">от 6 900 ₽</span>
+                        <span class="category-link">Подобрать номер →</span>
+                    </span>
+                </a>
+                <a class="category-card category-lux" href="catalog.html?category=lux">
+                    <span class="category-name">Люкс</span>
+                    <span class="category-text">Гостиная, ванна и панорамные окна. Для особых поводов и долгих выходных.</span>
+                    <span class="category-bottom">
+                        <span class="category-price">от 12 500 ₽</span>
+                        <span class="category-link">Подобрать номер →</span>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-muted">
+        <div class="container">
+            <div class="section-head">
+                <div>
+                    <p class="eyebrow">Подборка</p>
+                    <h2>Номера, которые стоит увидеть</h2>
+                </div>
+                <a class="link-arrow" href="catalog.html">Весь каталог →</a>
+            </div>
+
+            <div class="room-grid">
+                <article class="room-card">
+                    <div class="room-media">
+                        <img src="assets/img/standard.jpg" alt="Стандарт «Сити»" loading="lazy" width="640" height="420">
+                        <span class="room-badge">Стандарт</span>
+                    </div>
+                    <div class="room-body">
+                        <div class="room-top">
+                            <h3>Стандарт «Сити»</h3>
+                            <p class="room-price">4 500 ₽<span>/сутки</span></p>
+                        </div>
+                        <ul class="room-meta">
+                            <li>до 2 гостей</li>
+                            <li>18 м²</li>
+                        </ul>
+                        <ul class="room-amenities">
+                            <li>Wi-Fi</li>
+                            <li>Кондиционер</li>
+                            <li>Телевизор</li>
+                            <li>Холодильник</li>
+                        </ul>
+                        <a class="btn btn-primary btn-block" href="booking.html?room=standard">Забронировать</a>
+                    </div>
+                </article>
+
+                <article class="room-card">
+                    <div class="room-media">
+                        <img src="assets/img/studio.jpg" alt="Студия «Лофт»" loading="lazy" width="640" height="420">
+                        <span class="room-badge">Студия</span>
+                    </div>
+                    <div class="room-body">
+                        <div class="room-top">
+                            <h3>Студия «Лофт»</h3>
+                            <p class="room-price">6 900 ₽<span>/сутки</span></p>
+                        </div>
+                        <ul class="room-meta">
+                            <li>до 2 гостей</li>
+                            <li>28 м²</li>
+                        </ul>
+                        <ul class="room-amenities">
+                            <li>Wi-Fi</li>
+                            <li>Кондиционер</li>
+                            <li>Кухня</li>
+                            <li>Диван</li>
+                        </ul>
+                        <a class="btn btn-primary btn-block" href="booking.html?room=studio">Забронировать</a>
+                    </div>
+                </article>
+
+                <article class="room-card">
+                    <div class="room-media">
+                        <img src="assets/img/lux.jpg" alt="Люкс «Гранд»" loading="lazy" width="640" height="420">
+                        <span class="room-badge">Люкс</span>
+                    </div>
+                    <div class="room-body">
+                        <div class="room-top">
+                            <h3>Люкс «Гранд»</h3>
+                            <p class="room-price">12 500 ₽<span>/сутки</span></p>
+                        </div>
+                        <ul class="room-meta">
+                            <li>до 2 гостей</li>
+                            <li>45 м²</li>
+                        </ul>
+                        <ul class="room-amenities">
+                            <li>Wi-Fi</li>
+                            <li>Ванна</li>
+                            <li>Сейф</li>
+                            <li>Халат и тапочки</li>
+                        </ul>
+                        <a class="btn btn-primary btn-block" href="booking.html?room=lux">Забронировать</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container benefits-grid">
+            <article class="benefit">
+                <span class="benefit-icon" aria-hidden="true">◷</span>
+                <h3>Заезд в любое время</h3>
+                <p>Стойка регистрации работает круглосуточно. Предупредите о позднем заезде — вас встретят.</p>
+            </article>
+            <article class="benefit">
+                <span class="benefit-icon" aria-hidden="true">☕</span>
+                <h3>Завтрак до полудня</h3>
+                <p>Каши, сырники, свежая выпечка и кофе. Включён в стоимость любого номера.</p>
+            </article>
+            <article class="benefit">
+                <span class="benefit-icon" aria-hidden="true">⌘</span>
+                <h3>Работать удобно</h3>
+                <p>Быстрый Wi-Fi, рабочий стол и тихий двор — можно совместить поездку и дела.</p>
+            </article>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="container footer-grid">
+        <div class="footer-about">
+            <a class="brand brand-footer" href="index.html">
+                <span class="brand-mark" aria-hidden="true">☾</span>
+                <span class="brand-text">
+                    <strong>Сладкие сны</strong>
+                    <small>отдых без забот</small>
+                </span>
+            </a>
+            <p>Небольшая гостиница в центре города: светлые номера, тихий двор и завтрак до полудня.</p>
+        </div>
+
+        <div class="footer-contacts">
+            <h3>Контакты</h3>
+            <p>г. Новосибирск, ул. Сладкая, 12</p>
+            <p>Режим работы: круглосуточно, без выходных</p>
+            <p><a href="tel:+73832220000">+7 (383) 222-00-00</a></p>
+            <p><a href="mailto:hello@sweetdreams.ru">hello@sweetdreams.ru</a></p>
+        </div>
+    </div>
+    <div class="container footer-bottom">
+        <span>© 2026 «Сладкие сны». Учебный проект для демонстрационного экзамена.</span>
+        <a href="catalog.html">Прототип Задания 2</a>
+    </div>
+</footer>
+
+<script src="prototype.js"></script>
+</body>
+</html>

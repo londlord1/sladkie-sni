@@ -1,0 +1,73 @@
+/* Оформление статических прототипов Задания 2.
+   Основные стили лежат в assets/css/style.css. */
+
+.prototype-bar {
+    background: var(--navy);
+    color: #fff;
+    padding: 8px 16px;
+    font-size: 13px;
+    line-height: 1.4;
+    text-align: center;
+    letter-spacing: 0.02em;
+}
+
+.prototype-bar strong {
+    color: var(--gold-soft);
+    font-weight: 600;
+}
+
+.prototype-note {
+    margin: 0 0 20px;
+    padding: 10px 14px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    background: var(--gold-soft);
+    color: var(--ink-soft);
+    font-size: 14px;
+}
+
+.hero-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+}
+
+.catalog-results {
+    min-width: 0;
+}
+
+.filter-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.field-error {
+    margin: 6px 0 0;
+    color: var(--danger);
+    font-size: 13px;
+}
+
+.has-error input,
+.has-error select {
+    border-color: var(--danger);
+}
+
+.prototype-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.success-card {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+@media (max-width: 640px) {
+    .prototype-bar {
+        font-size: 12px;
+    }
+}

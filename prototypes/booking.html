@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Сладкие сны — прототип бронирования</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="prototype.css">
+</head>
+<body>
+<div class="prototype-bar">Статический прототип · <strong>Задание 2</strong> · данные демонстрационные</div>
+
+<header class="site-header">
+    <div class="container header-inner">
+        <a class="brand" href="index.html">
+            <span class="brand-mark" aria-hidden="true">☾</span>
+            <span class="brand-text">
+                <strong>Сладкие сны</strong>
+                <small>отдых без забот</small>
+            </span>
+        </a>
+
+        <nav class="main-nav" aria-label="Основная навигация">
+            <a href="index.html" class="nav-link">Главная</a>
+            <a href="catalog.html" class="nav-link">Каталог</a>
+            <a href="booking.html" class="nav-link is-active">Бронирование</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section class="page-head page-head-compact">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="catalog.html">Каталог</a>
+                <span aria-hidden="true">/</span>
+                <span id="breadcrumb-room">Стандарт «Сити»</span>
+            </nav>
+            <h1>Бронирование номера</h1>
+        </div>
+    </section>
+
+    <section class="section section-tight">
+        <div class="container booking-layout">
+            <aside class="booking-summary">
+                <img class="summary-image" id="room-image" src="assets/img/standard.jpg" alt="Стандарт «Сити»" width="640" height="420">
+                <p class="eyebrow" id="room-category">Стандарт</p>
+                <h2 id="room-title">Стандарт «Сити»</h2>
+                <p class="summary-price"><span id="room-price">4 500 ₽</span> <span>/ сутки</span></p>
+
+                <ul class="summary-list">
+                    <li><span>Гостей</span><strong id="room-capacity">до 2</strong></li>
+                    <li><span>Площадь</span><strong id="room-area">18 м²</strong></li>
+                    <li><span>Категория</span><strong id="room-category-2">Стандарт</strong></li>
+                </ul>
+
+                <ul class="room-amenities room-amenities-wide" id="room-amenities">
+                    <li>Wi-Fi</li>
+                    <li>Кондиционер</li>
+                    <li>Телевизор</li>
+                    <li>Холодильник</li>
+                </ul>
+
+                <p class="summary-note">Оплата при заселении. Бесплатная отмена — не позднее чем за 24 часа до заезда.</p>
+            </aside>
+
+            <div class="booking-main">
+                <div class="alert alert-error" id="form-alert" role="alert" hidden>
+                    Проверьте отмеченные поля — заявка не отправлена.
+                </div>
+
+                <p class="prototype-note">
+                    Прототип проверяет данные на клиенте. В рабочем сервисе те же правила повторно проверяются на сервере.
+                </p>
+
+                <form class="booking-form" id="booking-form" novalidate>
+                    <div class="form-head">
+                        <h2>Данные гостя</h2>
+                        <p>Все поля обязательны. Даты указывайте в формате ДД.ММ.ГГГГ.</p>
+                    </div>
+
+                    <div class="field-row">
+                        <div class="field" data-field="first_name">
+                            <label for="first_name">Имя</label>
+                            <input id="first_name" name="first_name" type="text" autocomplete="given-name" required>
+                            <p class="field-hint">Кириллица, пробел, точка, дефис</p>
+                            <p class="field-error" data-error hidden></p>
+                        </div>
+
+                        <div class="field" data-field="last_name">
+                            <label for="last_name">Фамилия</label>
+                            <input id="last_name" name="last_name" type="text" autocomplete="family-name" required>
+                            <p class="field-hint">Кириллица, пробел, точка, дефис</p>
+                            <p class="field-error" data-error hidden></p>
+                        </div>
+                    </div>
+
+                    <div class="field-row">
+                        <div class="field" data-field="phone">
+                            <label for="phone">Телефон</label>
+                            <input id="phone" name="phone" type="tel" placeholder="+7(999)123-45-67" autocomplete="tel" inputmode="tel" required>
+                            <p class="field-error" data-error hidden></p>
+                        </div>
+
+                        <div class="field" data-field="email">
+                            <label for="email">E-mail</label>
+                            <input id="email" name="email" type="email" placeholder="guest@example.ru" autocomplete="email" inputmode="email" required>
+                            <p class="field-error" data-error hidden></p>
+                        </div>
+                    </div>
+
+                    <div class="field-row">
+                        <div class="field" data-field="check_in">
+                            <label for="check_in">Дата заезда</label>
+                            <input id="check_in" name="check_in" type="text" placeholder="ДД.ММ.ГГГГ" inputmode="numeric" autocomplete="off" required>
+                            <p class="field-error" data-error hidden></p>
+                        </div>
+
+                        <div class="field" data-field="check_out">
+                            <label for="check_out">Дата выезда</label>
+                            <input id="check_out" name="check_out" type="text" placeholder="ДД.ММ.ГГГГ" inputmode="numeric" autocomplete="off" required>
+                            <p class="field-error" data-error hidden></p>
+                        </div>
+                    </div>
+
+                    <div class="booking-total" id="booking-total" hidden>
+                        <span id="nights-label">0 ночей</span>
+                        <strong id="total-value">0 ₽</strong>
+                    </div>
+
+                    <div class="prototype-actions">
+                        <button class="btn btn-ghost" type="button" id="demo-fill">Заполнить примером</button>
+                        <button class="btn btn-primary btn-large" type="submit">Отправить заявку</button>
+                    </div>
+
+                    <p class="form-note">
+                        Нажимая кнопку, вы соглашаетесь на обработку персональных данных.
+                        Заявка не является оплатой: администратор свяжется с вами для подтверждения.
+                    </p>
+                </form>
+
+                <section class="success-card" id="success-card" hidden>
+                    <span class="success-icon" aria-hidden="true">✓</span>
+                    <p class="eyebrow">Готово</p>
+                    <h1>Заявка отправлена</h1>
+                    <p class="success-lead">
+                        Спасибо, <strong id="success-name">гость</strong>! Администратор проверит данные
+                        и свяжется с вами по телефону <strong id="success-phone">+7(999)123-45-67</strong>.
+                    </p>
+
+                    <dl class="success-details">
+                        <div><dt>Номер</dt><dd id="success-room">Стандарт «Сити»</dd></div>
+                        <div><dt>Заезд</dt><dd id="success-checkin">—</dd></div>
+                        <div><dt>Выезд</dt><dd id="success-checkout">—</dd></div>
+                        <div><dt>Статус</dt><dd><span class="status status-new">Новая</span></dd></div>
+                    </dl>
+
+                    <div class="success-actions">
+                        <a class="btn btn-primary" href="catalog.html">Вернуться в каталог</a>
+                        <a class="btn btn-ghost" href="index.html">На главную</a>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="container footer-grid">
+        <div class="footer-about">
+            <a class="brand brand-footer" href="index.html">
+                <span class="brand-mark" aria-hidden="true">☾</span>
+                <span class="brand-text">
+                    <strong>Сладкие сны</strong>
+                    <small>отдых без забот</small>
+                </span>
+            </a>
+            <p>Небольшая гостиница в центре города: светлые номера, тихий двор и завтрак до полудня.</p>
+        </div>
+
+        <div class="footer-contacts">
+            <h3>Контакты</h3>
+            <p>г. Новосибирск, ул. Сладкая, 12</p>
+            <p>Режим работы: круглосуточно, без выходных</p>
+            <p><a href="tel:+73832220000">+7 (383) 222-00-00</a></p>
+            <p><a href="mailto:hello@sweetdreams.ru">hello@sweetdreams.ru</a></p>
+        </div>
+    </div>
+    <div class="container footer-bottom">
+        <span>© 2026 «Сладкие сны». Учебный проект для демонстрационного экзамена.</span>
+        <a href="index.html">Прототип Задания 2</a>
+    </div>
+</footer>
+
+<script src="prototype.js"></script>
+</body>
+</html>
