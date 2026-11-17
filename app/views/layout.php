@@ -73,8 +73,7 @@
         </div>
     </div>
     <div class="container footer-bottom">
-        <span>© <?= date('Y') ?> «Сладкие сны». Учебный проект для демонстрационного экзамена.</span>
-        <a href="<?= e(url('admin.login')) ?>">Для персонала</a>
+        <span>© <?= date('Y') ?> «Сладкие сны». Все права защищены.</span>
     </div>
 </footer>
 
